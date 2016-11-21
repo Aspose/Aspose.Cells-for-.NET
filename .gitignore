@@ -5,7 +5,10 @@ classes/
 generated/
 *.suo
 bin/
+!/Examples.GridWeb/CSharp/bin/
+!/Examples.GridWeb/VisualBasic/bin/
 * Out*
+*_out_*
 * out*
 *.ldb
 Thumbs.db
@@ -20,7 +23,7 @@ TestResults/
 *.vsmdi
 test-results/
 *.userprefs
-*/vendor/*
+packages
 Plugins/Aspose_Cells_NET_for_PHP/.idea/*
 Plugins/Aspose_Cells_NET_for_PHP/vendor/*
 

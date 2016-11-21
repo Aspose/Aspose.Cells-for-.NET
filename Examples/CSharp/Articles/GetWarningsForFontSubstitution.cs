@@ -1,14 +1,12 @@
 using System.IO;
-
 using Aspose.Cells;
 using System.Diagnostics;
 
-namespace Aspose.Cells.Examples.Articles
+namespace Aspose.Cells.Examples.CSharp.Articles
 {
-    //ExStart:1
+    // ExStart:1
     public class GetWarningsForFontSubstitution : IWarningCallback
     {
-
         public void Warning(WarningInfo info)
         {
             if (info.WarningType == WarningType.FontSubstitution)
@@ -17,22 +15,19 @@ namespace Aspose.Cells.Examples.Articles
             }
         }
 
-
-
-
-        static void Main()
+        public static void Run()
         {
-            Workbook workbook = new Workbook("F:\\AllExamples\\Aspose.Cells\\net\\TechnicalArticles\\Aspose.CellsGeneral\\GetWarningsForFontSubstitution\\Data\\source.xlsx");
+            // The path to the documents directory.
+            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            Workbook workbook = new Workbook(dataDir + "source.xlsx");
 
             PdfSaveOptions options = new PdfSaveOptions();
             options.WarningCallback = new GetWarningsForFontSubstitution();
-
-            workbook.Save("F:\\AllExamples\\Aspose.Cells\\net\\TechnicalArticles\\Aspose.CellsGeneral\\GetWarningsForFontSubstitution\\Data\\output.pdf", options);
-   
+            dataDir = dataDir + "output_out_.pdf";
+            workbook.Save(dataDir, options);
         }
-
     }
-        //ExEnd:1
+    // ExEnd:1
 }
 
 

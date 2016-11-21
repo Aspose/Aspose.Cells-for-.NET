@@ -2,15 +2,15 @@ using System.IO;
 
 using Aspose.Cells;
 
-namespace Aspose.Cells.Examples.Data.Processing.FilteringAndValidation
+namespace Aspose.Cells.Examples.CSharp.Data.Processing.FilteringAndValidation
 {
     public class TimeDataValidation
     {
-        public static void Main(string[] args)
+        public static void Run()
         {
-            //ExStart:1
+            // ExStart:1
             // The path to the documents directory.
-            string dataDir = Aspose.Cells.Examples.Utils.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
             // Create directory if it is not already present.
             bool IsExists = System.IO.Directory.Exists(dataDir);
@@ -34,8 +34,15 @@ namespace Aspose.Cells.Examples.Data.Processing.FilteringAndValidation
             // Get the validations collection.
             ValidationCollection validations = workbook.Worksheets[0].Validations;
 
+            // Create Cell Area
+            CellArea ca = new CellArea();
+            ca.StartRow = 0;
+            ca.EndRow = 0;
+            ca.StartColumn = 0;
+            ca.EndColumn = 0;
+
             // Add a new validation.
-            Validation validation = validations[validations.Add()];
+            Validation validation = validations[validations.Add(ca)];
 
             // Set the data validation type.
             validation.Type = ValidationType.Time;
@@ -78,7 +85,7 @@ namespace Aspose.Cells.Examples.Data.Processing.FilteringAndValidation
 
             // Save the Excel file.
             workbook.Save(dataDir + "output.out.xls");
-            //ExEnd:1
+            // ExEnd:1
 
             
         }

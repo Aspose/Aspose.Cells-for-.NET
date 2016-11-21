@@ -2,14 +2,15 @@
 using Aspose.Cells;
 using Aspose.Cells.Metadata;
 
-namespace Aspose.Cells.Examples.Articles
+namespace Aspose.Cells.Examples.CSharp.Articles
 {
     class UsingWorkbookMetadata
     {
-        public static void Main(string[] args)
+        public static void Run()
         {
+            // ExStart:1
             // The path to the documents directory.
-            string dataDir = Aspose.Cells.Examples.Utils.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
             // Open Workbook metadata
             MetadataOptions options = new MetadataOptions(MetadataType.DocumentProperties);
@@ -22,13 +23,14 @@ namespace Aspose.Cells.Examples.Articles
             meta.Save(dataDir + "Sample2.out.xlsx");
 
             // Open the workbook
-            Workbook w = new Workbook(dataDir+ "Sample2.xlsx");
+            Workbook w = new Workbook(dataDir + "Sample2.out.xlsx");
 
             // Read document property
             Console.WriteLine(w.CustomDocumentProperties["test"]);
 
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
+            // ExEnd:1
         }
     }
 }

@@ -1,38 +1,41 @@
+using System;
 using System.IO;
-
 using Aspose.Cells;
 using System.Data;
 
-namespace Aspose.Cells.Examples.Data.Handling
+namespace Aspose.Cells.Examples.CSharp.Data.Handling
 {
     public class ExportColumnContainingStronglyTypedData
     {
-        public static void Main(string[] args)
+        public static void Run()
         {
-           /* // The path to the documents directory.
-            string dataDir = Aspose.Cells.Examples.Utils.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            // The path to the documents directory.
+            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
             string filePath = dataDir + "Book1.xlsx";
 
-            //Creating a file stream containing the Excel file to be opened
-            FileStream fstream = new FileStream(filePath, FileMode.Open);
+            // Instantiating a Workbook object
+            Workbook workbook = new Workbook(filePath);
 
-            //Instantiating a Workbook object
-            //Opening the Excel file through the file stream
-            Workbook workbook = new Workbook(fstream);
-
-            //Accessing the first worksheet in the Excel file
+            // Accessing the first worksheet in the Excel file
             Worksheet worksheet = workbook.Worksheets[0];
 
-            //Exporting the contents of 7 rows and 2 columns starting from 1st cell to DataTable
-            DataTable dataTable = worksheet.Cells.ExportDataTable(0, 0, 7, 2, true);
+            // Exporting the contents of 7 rows and 2 columns starting from 1st cell to DataTable
+            DataTable dataTable = worksheet.Cells.ExportDataTable(0, 0, 11, 2, true);
 
-            //Binding the DataTable with DataGrid
-            //dataGrid1.DataSource = dataTable;
+            foreach (DataRow r in dataTable.Rows)
+            {
+                foreach (DataColumn c in dataTable.Columns)
+                {
+                    Double value = r.Field<Double>(c);
+                    Console.Write(value + "    ");
+                }
+                Console.WriteLine();
+            }
 
-            //Closing the file stream to free all resources
-            fstream.Close();
-            */
+            // ExEnd:1
+
         }
     }
 }

@@ -5,12 +5,12 @@ Imports Aspose.Cells
 Imports System
 Imports System.Threading
 
-Namespace Aspose.Cells.Examples.Articles
+Namespace Articles
     Public Class ReadingCellValuesInMultipleThreadsSimultaneously
-        Public Shared Sub Main()
-            'ExStart:1
+        ' ExStart:1
+        Public Shared Sub Run()
             ' The path to the documents directory.
-            Dim dataDir As String = Aspose.Cells.Examples.Utils.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)
+            Dim dataDir As String = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)
         End Sub
 
         Public Shared testWorkbook As Workbook
@@ -18,12 +18,15 @@ Namespace Aspose.Cells.Examples.Articles
         Public Shared Sub ThreadLoop()
             Dim random As New Random()
             Do While Thread.CurrentThread.IsAlive
+                Try
                 Dim row As Integer = random.Next(0, 10000)
                 Dim col As Integer = random.Next(0, 100)
                 Dim s = testWorkbook.Worksheets(0).Cells(row, col).StringValue
-                'If s IsNot AscW("R") + row + AscW("C") + col Then
+                ' If s IsNot AscW("R") + row + AscW("C") + col Then
                 ' MessageBox.Show("This message box will show up when cells read values are incorrect.");
-                'End If
+                    ' End If
+                Catch ex As Exception
+                End Try
             Loop
         End Sub
 
@@ -38,7 +41,7 @@ Namespace Aspose.Cells.Examples.Articles
                 Next col
             Next row
 
-            'Commenting this line will show a pop-up message
+            ' Commenting this line will show a pop-up message
             testWorkbook.Worksheets(0).Cells.MultiThreadReading = True
 
             Dim myThread1 As Thread
@@ -52,9 +55,7 @@ Namespace Aspose.Cells.Examples.Articles
             System.Threading.Thread.Sleep(5 * 1000)
             myThread1.Abort()
             myThread2.Abort()
-            'ExEnd:1
         End Sub
-
-
+        ' ExEnd:1
     End Class
 End Namespace

@@ -3,12 +3,12 @@ Imports System.IO
 
 Imports Aspose.Cells
 
-Namespace Aspose.Cells.Examples.Data.Processing.Processing.FilteringAndValidation
+Namespace Data.Processing.FilteringAndValidation
     Public Class ListDataValidation
-        Public Shared Sub Main(ByVal args() As String)
-            'ExStart:1
+        Public Shared Sub Run()
+            ' ExStart:1
             ' The path to the documents directory.
-            Dim dataDir As String = Aspose.Cells.Examples.Utils.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)
+            Dim dataDir As String = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType)
 
             ' Create directory if it is not already present.
             Dim IsExists As Boolean = System.IO.Directory.Exists(dataDir)
@@ -41,8 +41,15 @@ Namespace Aspose.Cells.Examples.Data.Processing.Processing.FilteringAndValidatio
             ' Get the validations collection.
             Dim validations As ValidationCollection = worksheet1.Validations
 
+            ' Create Cell Area
+            Dim ca As CellArea = New CellArea()
+            ca.StartRow = 0
+            ca.EndRow = 0
+            ca.StartColumn = 0
+            ca.EndColumn = 0
+
             ' Create a new validation to the validations list.
-            Dim validation As Validation = validations(validations.Add())
+            Dim validation As Validation = validations(validations.Add(ca))
 
             ' Set the validation type.
             validation.Type = Global.Aspose.Cells.ValidationType.List
@@ -80,7 +87,7 @@ Namespace Aspose.Cells.Examples.Data.Processing.Processing.FilteringAndValidatio
 
             ' Save the Excel file.
             workbook.Save(dataDir & "output.xls")
-            'ExEnd:1
+            ' ExEnd:1
         End Sub
     End Class
 End Namespace

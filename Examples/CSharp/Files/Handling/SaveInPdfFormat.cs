@@ -1,23 +1,26 @@
 using System.IO;
-
+using System.Web;
 using Aspose.Cells;
 
-namespace Aspose.Cells.Examples.Files.Handling
+namespace Aspose.Cells.Examples.CSharp.Files.Handling
 {
     public class SaveInPdfFormat
     {
-        public static void Main(string[] args)
+        public static void Run()
         {
-            //ExStart:1
+            // ExStart:1
             // The path to the documents directory.
-            string dataDir = Aspose.Cells.Examples.Utils.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-            //Creating a Workbook object
+            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            HttpResponse Respose = null;
+            // Creating a Workbook object
             Workbook workbook = new Workbook();
-              //Save in Pdf format
-            workbook.Save(dataDir + "output.pdf", SaveFormat.Pdf);
-
-            //ExEnd:1
+            if (Respose != null)
+            {
+                // Save in Pdf format
+                workbook.Save(Respose, dataDir + "output.pdf", ContentDisposition.Attachment, new PdfSaveOptions());
+                Respose.End();
+            }            
+            // ExEnd:1
         }
     }
 }
