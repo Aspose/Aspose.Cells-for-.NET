@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 using Aspose.Cells;
@@ -9,26 +10,30 @@ namespace Aspose.Cells.Examples.CSharp.Articles.ConvertingWorksheetToImage
     {
         public static void Run()
         {
-            // ExStart:1
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            //Source directory
+            string sourceDir = RunExamples.Get_SourceDirectory();
 
-            Workbook book = new Workbook(dataDir+ "TestData.xlsx");
+            //Output directory
+            string outputDir = RunExamples.Get_OutputDirectory();
+
+            Workbook book = new Workbook(sourceDir + "sampleConvertWorksheetToImageByPage.xlsx");
+
             Worksheet sheet = book.Worksheets[0];
+
             Aspose.Cells.Rendering.ImageOrPrintOptions options = new Aspose.Cells.Rendering.ImageOrPrintOptions();
             options.HorizontalResolution = 200;
             options.VerticalResolution = 200;
-            options.ImageFormat = System.Drawing.Imaging.ImageFormat.Tiff;
+            options.ImageType = Drawing.ImageType.Tiff;
 
             // Sheet2Image By Page conversion
             SheetRender sr = new SheetRender(sheet, options);
             for (int j = 0; j < sr.PageCount; j++)
             {
-                sr.ToImage(j, dataDir+ "test" + sheet.Name + " Page" + (j + 1) + ".out.tif");
+                sr.ToImage(j, outputDir + "outputConvertWorksheetToImageByPage_" + (j + 1) + ".tif");
             }
- 
-            // ExEnd:1
-                       
+
+            Console.WriteLine("ConvertWorksheetToImageByPage executed successfully.");
+
         }
     }
 }

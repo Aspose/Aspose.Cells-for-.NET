@@ -112,17 +112,17 @@ namespace Aspose.Cells.Examples.CSharp.Articles.ManageChartsAndShapes
             ImageOrPrintOptions anOption = new ImageOrPrintOptions();
 
             // Set image format
-            anOption.ImageFormat = System.Drawing.Imaging.ImageFormat.Png;
+            anOption.ImageType = Drawing.ImageType.Png;
 
             // Set resolution
             anOption.HorizontalResolution = 200;
             anOption.VerticalResolution = 200;
 
             // Render chart to image
-            chart.ToImage(dataDir + "output_out_.png", anOption);
+            chart.ToImage(dataDir + "output_out.png", anOption);
 
             // Save the workbook to see chart inside the Excel
-            workbook.Save(dataDir + "output_out_.xlsx");
+            workbook.Save(dataDir + "output_out.xlsx");
             // ExEnd:SaveChartInImageAndWorkbookInXLSX
         }
     }

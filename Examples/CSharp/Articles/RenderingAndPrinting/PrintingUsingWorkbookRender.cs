@@ -10,41 +10,33 @@ namespace Aspose.Cells.Examples.CSharp.Articles.RenderingAndPrinting
     {
         public static void Run()
         {
-            // ExStart:PrintingExcelWorkbookUsingWorkbookRender
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            //Source directory
+            string sourceDir = RunExamples.Get_SourceDirectory();
 
             // Instantiate a workbook with an Excel file.
-            Workbook workbook = new Workbook(dataDir + "SampleBook.xlsx");
+            Workbook workbook = new Workbook(sourceDir + "samplePrintingUsingWorkbookRender.xlsx");
 
-            string printerName = "";
-
-            while (string.IsNullOrEmpty(printerName) && string.IsNullOrWhiteSpace(printerName))
-            {
-                Console.WriteLine("Please Enter Your Printer Name:");
-                printerName = Console.ReadLine();
-            }
+            string printerName = "doPDF 8";
 
             // Apply different Image/Print options.
             Aspose.Cells.Rendering.ImageOrPrintOptions options = new Aspose.Cells.Rendering.ImageOrPrintOptions();
-            options.ImageFormat = System.Drawing.Imaging.ImageFormat.Tiff;
+            options.ImageType = Drawing.ImageType.Tiff;
             options.PrintingPage = PrintingPageType.Default;
 
             // To print a whole workbook, iterate through the sheets and print them, or use the WorkbookRender class.
             WorkbookRender wr = new WorkbookRender(workbook, options);
-
-            Console.WriteLine("Printing SampleBook.xlsx");
-            // Print the workbook.
+            
             try
             {
+                // Print the workbook.
                 wr.ToPrinter(printerName);
-                Console.WriteLine("Pinting finished.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            // ExEnd:PrintingExcelWorkbookUsingWorkbookRender
+
+            Console.WriteLine("PrintingUsingWorkbookRender executed successfully.");
         }
     }
 }

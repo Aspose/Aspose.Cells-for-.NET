@@ -5,13 +5,13 @@ namespace Aspose.Cells.Examples.CSharp.Articles
 {
     public class DataValidationRules
     {
-        public static void Run()
+        //Source directory
+        static string sourceDir = RunExamples.Get_SourceDirectory();
+        public static void Main()
         {
-            // ExStart:1
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:DataValidationRules
             // Instantiate the workbook from sample Excel file
-            Workbook workbook = new Workbook(dataDir+ "sample.xlsx");
+            Workbook workbook = new Workbook(sourceDir + "sampleDataValidationRules.xlsx");
 
             // Access the first worksheet
             Worksheet worksheet = workbook.Worksheets[0];
@@ -41,9 +41,17 @@ namespace Aspose.Cells.Examples.CSharp.Articles
 
             // Check if number 30 satisfies the Data Validation rule applied on this cell
             Console.WriteLine("Is 30 a Valid Value for this Cell: " + cell.GetValidationValue());
-            // ExEnd:1
 
-            
+            // Enter large number 12345678901 inside this cell
+            // Since it is not between 1 and 999999999999, it should pass the validation again
+            Cell cell2 = worksheet.Cells["D1"];
+            cell2.PutValue(12345678901);
+
+            // Check if number 12345678901 satisfies the Data Validation rule applied on this cell
+            Console.WriteLine("Is 12345678901 a Valid Value for this Cell: " + cell2.GetValidationValue());
+            // ExEnd:DataValidationRules
+
+            Console.WriteLine("DataValidationRules executed successfully.\r\n");
         }
     }
 }

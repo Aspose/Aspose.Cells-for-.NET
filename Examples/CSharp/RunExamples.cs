@@ -5,7 +5,6 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using Aspose.Cells.Examples.CSharp.Articles;
-using Aspose.Cells.Examples.CSharp.Articles.ApplyConditionalFormatting;
 using Aspose.Cells.Examples.CSharp.Articles.ConvertExcelChartToImage;
 using Aspose.Cells.Examples.CSharp.Articles.ConvertingWorksheetToImage;
 using Aspose.Cells.Examples.CSharp.Articles.CopyRowsColumns;
@@ -28,17 +27,10 @@ using Aspose.Cells.Examples.CSharp.Articles.ManageChartsAndShapes;
 using Aspose.Cells.Examples.CSharp.Articles.ManageDatabaseConnection;
 using Aspose.Cells.Examples.CSharp.Articles.ManagingVBAModules;
 using Aspose.Cells.Examples.CSharp.Articles.ManageConditionalFormatting;
-using Aspose.Cells.Examples.CSharp.CellsHelperClass;
 using Aspose.Cells.Examples.CSharp.Charts;
-using Aspose.Cells.Examples.CSharp.Charts.InsertingControlsintoCharts;
-using Aspose.Cells.Examples.CSharp.Charts.ManipulateChart;
-using Aspose.Cells.Examples.CSharp.Charts.SettingChartsAppearance;
-using Aspose.Cells.Examples.CSharp.Data.AddOn.Hyperlinks;
-using Aspose.Cells.Examples.CSharp.Data.AddOn.Merging;
-using Aspose.Cells.Examples.CSharp.Data.AddOn.NamedRanges;
+using Aspose.Cells.Examples.CSharp.Data;
 using Aspose.Cells.Examples.CSharp.Data.Handling;
 using Aspose.Cells.Examples.CSharp.Data.Handling.AccessingCells;
-using Aspose.Cells.Examples.CSharp.Data.Handling.Find;
 using Aspose.Cells.Examples.CSharp.Data.Handling.Importing;
 using Aspose.Cells.Examples.CSharp.Data.Processing;
 using Aspose.Cells.Examples.CSharp.Data.Processing.FilteringAndValidation;
@@ -51,6 +43,7 @@ using Aspose.Cells.Examples.CSharp.DrawingObjects.Pictures.PositioningPictures;
 using Aspose.Cells.Examples.CSharp.Files.Handling;
 using Aspose.Cells.Examples.CSharp.Files.Utility;
 using Aspose.Cells.Examples.CSharp.Formatting;
+using Aspose.Cells.Examples.CSharp.KnowledgeBase.Benchmarking;
 using Aspose.Cells.Examples.CSharp.Formatting.ApproachesToFormatData;
 using Aspose.Cells.Examples.CSharp.Formatting.Borders;
 using Aspose.Cells.Examples.CSharp.Formatting.ConfiguringAlignmentSettings;
@@ -75,7 +68,13 @@ using Aspose.Cells.Examples.CSharp.Worksheets.PageSetupFeatures;
 using Aspose.Cells.Examples.CSharp.Worksheets.Security.Protecting;
 using Aspose.Cells.Examples.CSharp.Worksheets.Security.Unprotect;
 using Aspose.Cells.Examples.CSharp.Articles.UsingImageOrPrintOptions;
-
+using Aspose.Cells.Examples.CSharp.KnowledgeBase.ComparingVSTOWithAspose;
+using Aspose.Cells.Examples.CSharp.KnowledgeBase.FAQs;
+using Aspose.Cells.Examples.CSharp.Articles.FilteringObjectsAtLoadTime;
+using Aspose.Cells.Examples.CSharp.XmlMaps;
+using Aspose.Cells.Examples.CSharp._CellsHelper;
+using Aspose.Cells.Examples.CSharp.HTML;
+using Aspose.Cells.Examples.CSharp.WorkbookSettings;
 
 namespace Aspose.Cells.Examples.CSharp
 {
@@ -86,15 +85,209 @@ namespace Aspose.Cells.Examples.CSharp
         {
             Console.WriteLine("Open RunExamples.cs. \nIn Main() method uncomment the example that you want to run.");
             Console.WriteLine("=====================================================");
-            // Uncomment the one you want to try out        
+
+            Console.WriteLine("Aspose.Cells for .NET v" + CellsHelper.GetVersion());
+            Console.WriteLine("");
+
+            //The following lines are setting Aspose.Cells license.
+            //Please place the license in 01_SourceDirectory directory 
+            //returned by Get_SourceDirectory() method as shown in the code
+            try
+            {
+                // Create a License object
+                Aspose.Cells.License license = new License();
+
+                // Set the license of Aspose.Cells to avoid the evaluation limitations
+                // Uncomment this line if you have a license
+                //license.SetLicense(Get_SourceDirectory() + "Aspose.Cells.lic");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            // Uncomment the one you want to try out
+
+            //Aspose.Cells for .NET v18.11
+            DetectCircularReference.Main();
+            GetPivotTableRefreshDate.Main();
+            ReplaceTextInSmartArt.Main();
+            DataValidationRules.Main();
+            ConvertExcelFileToSVG.Main();
+
+            //Aspose.Cells for .NET v18.10
+            //GetShapeConnectionPoints.Main();
+            //SetScalableColumnWidth.Main();
+            //RecognizeSelfClosingTags.Main();
+            //OpeningCSVFilesWithPreferredParser.Main();
+            //SupportNamedRangeFormulasInGermanLocale.Main();
+            //AutofilterBeginsWith.Main();
+            //AutofilterEndsWith.Main();
+            //EvaluateIsBlank.Main();
 
 
-            // =====================================================
-            // =====================================================
-            // Articles
-            // =====================================================
-            // =====================================================
+            //Aspose.Cells for .NET v18.9
+            //ExportCustomPropertiesToPDF.Main();
+            //GetXMLPathFromListObjectTable.Main();
+            //CreateSafeSheetNames.Main();
+            //AutofilterBlank.Main();
+            //AutofilterNonBlank.Main();
+            //AutofilterContains.Main();
+            //AutofilterNotContains.Main();
+            //RetrieveQueryTableResultRange.Main();
 
+            //Aspose.Cells for .NET v18.8
+            //ApplyingTextAlignmentToPartialTextInsideTheTextBox.Main();
+            //ContentCopyForAccessibilityOption.Main();
+            //DisablePivotTableRibbon.Main();
+            //ExportRangeWithFlagToSkipColumnName.Main();
+            //PastingRowsColumnsWithPasteOptions.Main();
+
+
+            //Aspose.Cells for .NET v18.7
+            //Data.ChangeCellsAlignmentAndKeepExistingFormatting.Main();
+            //WorkbookSettings.FindMaximumRowsAndColumnsSupportedByXLSAndXLSXFormats.Main();
+            //Worksheets.Security.SpecifyAuthorWhileWriteProtectingWorkbook.Main();
+
+            //Aspose.Cells for .NET v18.6
+            //DrawingObjects.ExtractTextFromGearTypeSmartArtShape.Main();
+            //Data.GetAddressCellCountOffsetEntireColumnAndEntireRowOfTheRange.Main();
+            //Formulas.AddCellsToMicrosoftExcelFormulaWatchWindow.Main();
+            //Slicers.CreateSlicerToPivotTable.Main();
+            //Slicers.FormattingSlicer.Main();
+            //Slicers.RemovingSlicer.Main();
+            //Slicers.RenderingSlicer.Main();
+            //Slicers.UpdatingSlicer.Main();
+            //_Workbook.AddCustomXMLPartsAndSelectThemByID.Main();
+
+            //Aspose.Cells for .NET v18.5
+            //LoadingSavingConvertingAndManaging.SaveWorkbookToStrictOpenXMLSpreadsheetFormat.Main();
+            //Fonts.SpecifyIndividualOrPrivateSetOfFontsForWorkbookRendering.Main();
+            //DrawingObjects.SpecifyFarEastAndLatinNameOfFontInTextOptionsOfShape.Main();
+
+            //Aspose.Cells for .NET v18.4
+            //Charts.CreateChartPDFWithDesiredPageSize.Main();
+            //Charts.FindTypeOfXandYValuesOfPointsInChartSeries.Main();
+            //Data.GetAllHiddenRowsIndicesAfterRefreshingAutoFilter.Main();
+            //DocumentProperties.SpecifyLanguageOfExcelFileUsingBuiltInDocumentProperties.Main();
+            //DrawingObjects.RotateTextWithShapeInsideWorksheet.Main();
+            //HTML.GetHTML5StringFromCell.Main();
+            //HTML.HidingOverlaidContentWithCrossHideRightWhileSavingToHtml.Main();
+            //Rendering.AvoidBlankPageInOutputPdfWhenThereIsNothingToPrint.Main();
+
+            //Aspose.Cells for .NET v18.3
+            //Charts.ReadAxisLabelsAfterCalculatingTheChart.Run();
+            //Data.PreserveSingleQuotePrefixOfCellValueOrRange.Run();
+            //DrawingObjects.AccessAndModifyLabelOfOleObject.Run();
+            //HTML.ExportSimilarBorderStyle.Run();
+            //LoadingSavingConvertingAndManaging.SpecifyDocumentVersionOfExcelFile.Run();
+            //PivotTables.GroupPivotFieldsInPivotTable.Run();
+            //Rendering.GetDrawObjectAndBoundUsingDrawObjectEventHandler.Run();
+            //Worksheets.FindIfWorksheetIsDialogSheet.Run();
+            //_Workbook.StopConversionOrLoadingUsingInterruptMonitor.Run();
+
+            //Aspose.Cells for .NET v18.2
+            //WorkbookSettings.ControlExternalResourcesUsingWorkbookSetting_StreamProvider.Run();
+            //_Workbook.FilterDefinedNamesWhileLoadingWorkbook.Run();
+            //DrawingObjects.SetMarginsOfCommentOrShapeInsideTheWorksheet.Run();
+            //Data.SpecifyFormulaFieldsWhileImportingDataToWorksheet.Run();
+            //Formulas.SpecifyMaximumRowsOfSharedFormula.Run();
+
+            //Aspose.Cells for .NET v18.1
+            //Charts.HandleAutomaticUnitsOfChartAxisLikeMicrosoftExcel.Run();
+            //HTML.ExcludeUnusedStylesInExcelToHTML.Run();
+            //HTML.ExportDocumentWorkbookAndWorksheetPropertiesInHTML.Run();
+            //PivotTables.FindAndRefreshNestedOrChildrenPivotTables.Run();
+            //PivotTables.ParsingPivotCachedRecordsWhileLoadingExcelFile.Run();
+            //Rendering.CreatePdfBookmarkEntryForChartSheet.Run();
+
+            //Aspose.Cells for .NET v17.12
+            //Charts.SetShapeTypeOfDataLabelsOfChart.Run();
+            //HTML.ExportWorksheetCSSSeparatelyInOutputHTML.Run();
+            //HTML.PrefixTableElementsStylesWithHtmlSaveOptions_TableCssIdProperty.Run();
+            //Rendering.RenderOfficeAdd_InsWhileConvertingExcelToPdf.Run();
+            //SmartMarkers.AutoPopulateSmartMarkerDataToOtherWorksheets.Run();
+            //WorkbookSettings.Implement_Cell_FormulaLocal_SimilarTo_Range_FormulaLocal.Run();
+            //Worksheets.UpdateDaysPreservingHistoryOfRevisionLogsInSharedWorkbook.Run();
+
+            //Aspose.Cells for .NET v17.11
+            //_Workbook.CreateSharedWorkbook.Run();
+            //_Workbook.PasswordProtectOrUnprotectSharedWorkbook.Run();
+            //DrawingObjects.ConvertSmartArtToGroupShape.Run();
+            //DrawingObjects.DetermineIfShapeIsSmartArtShape.Run();
+            //Rendering.IgnoreErrorsWhileRenderingExcelToPdf.Run();
+            //Rendering.RenderLimitedNoOfSequentialPages.Run();
+            //XmlMaps.FindRootElementNameOfXmlMap.Run();
+            //XmlMaps.QueryCellAreasMappedToXmlMapPath.Run();
+
+            //Aspose.Cells for .NET v17.10
+            //Charts.SetValuesFormatCodeOfChartSeries.Run();
+            //Worksheets.UtilizeSheet_SheetId_PropertyOfOpenXml.Run();
+            //_Workbook.ReadAndWriteExternalConnectionOfXLSBFile.Run();
+            //Formulas.InterruptOrCancelFormulaCalculationOfWorkbook.Run();
+            //LoadingSavingConvertingAndManaging.SpecifyHtmlCrossTypeInOutputHTML.Run();
+
+            //Aspose.Cells for .NET v17.9
+            //Rendering.AddPDFBookmarksWithNamedDestinations.Run();
+            //Rendering.ControlLoadingOfExternalResourcesInExcelToPDF.Run();
+            //WorkbookVBAProject.CopyVBAMacroUserFormDesignerStorageToWorkbook.Run();
+            //DrawingObjects.SendShapeFrontOrBackInWorksheet.Run();
+            //Data.SortDataInColumnWithCustomSortList.Run();
+
+            //Aspose.Cells for .NET v17.8
+            //LoadingSavingConvertingAndManaging.DisableDownlevelRevealedCommentsWhileSavingToHTML.Run();
+            //LoadingSavingConvertingAndManaging.ExportCommentsWhileSavingExcelFileToHtml.Run();
+            //Rendering.OutputBlankPageWhenThereIsNothingToPrint.Run();
+            //_CellsHelper.UsingCustomImplementationFactoryToCreateCustomImplementationOfMemoryStream.Run();
+            //_Workbook.AddDigitalSignatureToAnAlreadySignedExcelFile.Run();
+
+            //Aspose.Cells for .NET v17.7
+            //Data.ApplyAdvancedFilterOfMicrosoftExcel.Run();
+            //Fonts.SetDefaultFontPropertyOfPdfSaveOptionsAndImageOrPrintOptions.Run();
+            //LoadingSavingConvertingAndManaging.ReadNumbersSpreadsheet.Run();
+            //WorkbookSettings.ImplementErrorsAndBooleanValueInRussianOrAnyOtherLanguage.Run();
+            //Worksheets.PageSetupFeatures.DetermineIfPaperSizeOfWorksheetIsAutomatic.Run();
+
+            //Aspose.Cells for .NET v17.6
+            //DrawingObjects.TilePictureAsTextureInsideShape.Run();
+            //SmartMarkers.UsingFormulaParameterInSmartMarkerField.Run();
+            //Rendering.ExportRangeOfCellsInWorksheetToImage.Run();
+
+            //Aspose.Cells for .NET v17.5
+            //Data.ExportHTMLStringValueOfCellsToDataTable.Run();
+            //Data.ShiftFirstRowDownWhenInsertingCellsDataTableRows.Run();
+            //LoadingSavingConvertingAndManaging.ConvertExcelFileToPDFA_1a.Run();
+            //Worksheets.PageSetupFeatures.CopyPageSetupSettingsFromSourceWorksheetToDestinationWorksheet.Run();
+            //Worksheets.PageSetupFeatures.ImplementCustomPaperSizeOfWorksheetForRendering.Run();
+            //Worksheets.PageSetupFeatures.RemoveExistingPrinterSettingsOfWorksheets.Run();
+
+            //Aspose.Cells for .NET v17.4.0
+            //Data.SpecifyingDBNumCustomPatternFormatting.Run();
+            //Data.SpecifyingSortWarningWhileSortingData.Run();
+            //WorkbookVBAProject.CheckifVBAProjectisProtectedandLockedforViewing.Run();
+            //WorkbookVBAProject.FindoutifVBAProjectisProtected.Run();
+            //WorkbookVBAProject.PasswordProtecttheVBAProjectofExcelWorkbook.Run();
+
+            //Aspose.Cells for .NET v17.3.0
+            //Charts.ReadManipulateExcel2016Charts.Run();
+            //Data.RenameDuplicateColumnsAutomaticallyWhileExportingWorksheetData.Run();
+            //Fonts.GetListOfFontsUsedInSpreadsheetOrWorkbook.Run();
+            //LoadingSavingConvertingAndManaging.AutoFitColumnsandRowsWhileLoadingHTMLInWorkbook.Run();
+            //LoadingSavingConvertingAndManaging.GetWarningsWhileLoadingExcelFile.Run();
+            //LoadingSavingConvertingAndManaging.TrimLeadingBlankRowsAndColumnsWhileExportingSpreadsheetsToCSVFormat.Run();
+            //RowsColumns.ConvertTextToColumns.Run();
+
+            //Aspose.Cells for .NET v17.2.0
+            //Introduction.FirstApplication.Run();
+            //Introduction.OpenExistingFile.Run();
+            //Introduction.CheckVersionNumber.Run();
+            //NumberOfSignificantDigits.Run();
+            //GetPageDimensions.Run();
+            //CheckCustomFormatPattern.Run();
+            //RenderGradientFillToHTML.Run();
+            //LoadTemplateWithoutCharts.Run();
+            //ReadColorOfShapesGlowEffect.Run();
+            //ReadAndManipulateExcel2016Charts.Run();
             //AccessTextBoxName.Run();
             //AddConditionalIconsSet.Run();
             //AddImageHyperlinks.Run();
@@ -113,17 +306,23 @@ namespace Aspose.Cells.Examples.CSharp
             //CopyRangeDataWithStyle.Run();
             //CopyRangeStyleOnly.Run();
             //CreateManipulateRemoveScenarios.Run();
-            //CreateTransparentImage.Run();
-            //CustomizingRibbonXML.Run();
             //CustomSliceSectorColorsPieChart.Run();
-            //DataValidationRules.Run();
             //DeleteRedundantSpacesWhileImportingFromHtml.Run();
-            //DetectMergedCells.Run();
+            //DetectMergedCellsAndUnmerge.Run();
             //DisableCompatibilityChecker.Run();
-            //ErrorCheckingOptions.Run();           
-            //ExportRangeofCells.Run();
+            //WriteUsingLightCellsAPI.Run();
+            //AbsolutePathOfExternalDataSourceFile.Run();
+            //AddXmlMapInsideWorkbook.Run();
+            //ApplyConditionalFormattingCellValue.Run();
+            //ApplyConditionalFormattingFormula.Run();
+            //SettingSubscriptEffect.Run();
+            //SettingSuperscripteffect.Run();
+            //ChangeTextBoxOrShapeCharacterSpacing.Run();
+            //AssignAndValidateDigitalSignatures.Run();
+            //ErrorCheckingOptions.Run();
             //ExportVisibleRowsData.Run();
             //ExtractImagesFromWorksheets.Run();
+            //ExportXmlMapFromWorkbook.Run();
             //FindCellsWithSpecificStyle.Run();
             //FindIfCellValueStartsWithSingleQuote.Run();
             //FindQueryTablesAndListObjectsOfExternalDataConnections.Run();
@@ -137,26 +336,32 @@ namespace Aspose.Cells.Examples.CSharp
             //IgnoreHiddenColumnsDataTable.Run();
             //Implement1904DateSystem.Run();
             //ImplementCustomCalculationEngine.Run();
-            //ImplementingNonSequencedRanges.Run();
             //InsertDeleteRows.Run();
-            //InsertingWAVFile.Run();
+            //ChartLegendEntry.Run();
+            //CheckHiddenExternalLinks.Run();
+            //CreateTransparentImage.Run();
+            //CustomizingRibbonXML.Run();
+            //CustomLabelsSubtotals.Run();
+            //ImplementingNonSequencedRanges.Run();
+            //InsertOleObject_WAVFile.Run();
             //InsertLinkedPicture.Run();
             //InsertPictureCellReference.Run();
             //LimitNumberOfPagesGenerated.Run();
-            //LoadSpecificSheets.Run();
             //LoadWebImage.Run();
             //MergeUnmergeRangeOfCells.Run();
+            //SetBackgroundPicture.Run();
             //MoveRangeOfCells.Run();
             //ReadingCSVMultipleEncodings.Run();
+            //LoadSpecificSheets.Run();
             //RemoveWhitespaceAroundData.Run();
             //RenderOnePdfPagePerExcelWorksheet.Run();
             //ResamplingAddedImages.Run();
             //SaveEachWorksheetToDifferentPDF.Run();
             //SearchReplaceDataInRange.Run();
             //SecurePDFDocuments.Run();
-            //SetBackgroundPicture.Run();
             //SetPixelFormatRenderedImage.Run();
             //SettingStrongEncryptionType.Run();
+            //SettingScaleCropAndLinksUpToDateProperties.Run();
             //SetWorksheetTabColor.Run();
             //ShowFormulasInsteadOfValues.Run();
             //SortData.Run();
@@ -169,13 +374,13 @@ namespace Aspose.Cells.Examples.CSharp
             //UpdateReferenceInWorksheets.Run();
             //SettingTextEffectsShadowOfShapeOrTextbox.Run();
             //ImplementDirectCalculationOfCustomFunction.Run();
-            //FilterDataWhileLoadingWorkbook.Run(); 
+            //FilterDataWhileLoadingWorkbook.Run();
+            //FilteringObjects.Run();
+            //CustomFilteringPerWorksheet.Run();
             //AddActiveXControls.Run();
-            //ChangeTextBoxOrShareCharacterSpacing.Run();
             //LoadExcelFileWithoutChart.Run();
             //ExportToHTMLWithGridLines.Run();
             //DivTagsLayout.Run();
-            //ChartLegendEntry.Run();
             //LoadWorkbookWithPrinterSize.Run();
             //CreateTextBoxWithDifferentHorizontalAlignment.Run();
             //SetTextboxOrShapeParagraphLineSpacing.Run();
@@ -186,47 +391,202 @@ namespace Aspose.Cells.Examples.CSharp
             //LoadWorkbookWithSpecificCultureInfoDateFormat.Run();
             //ReflactionEffectOfShape.Run();
             //ShadowEffectOfShape.Run();
-            //CheckHiddenExternalLinks.Run();
             //GlowEffectOfShape.Run();
             //Shape3DEffect.Run();
             //LinkCellsToXmlMapElements.Run();
             //PropagateFormulaInTable.Run();
             //AddWordArtTextWithBuiltinStyle.Run();
             //SetPresetWordArtStyle.Run();
-            //AddXmlMapInsideWorkbook.Run();
             //GetWarningsForFontSubstitution.Run();
             //RemoveUnusedStyles.Run();
             //ReadingCellValuesInMultipleThreadsSimultaneously.TestMultiThreadingRead();
             //GetSmartMarkerNotifications.Run();
-            //WriteUsingLightCellsAPI.Run();
             //ReadUsingLightCellsApi.Run();
-
-            //// Apply-Conditional-Formatting
-            //// =====================================================
-            //ApplyConditionalFormattingCellValue.Run();
-            //ApplyConditionalFormattingFormula.Run();
-
-            //// Apply-Superscript And Subscript
-            //// =====================================================
-            //Articles.ApplySuperscriptAndSubscript.SettingSubscriptEffect.Run();
-            //Articles.ApplySuperscriptAndSubscript.SettingSuperscripteffect.Run();
-
-            //// ConvertExcelChartToImage
-            //// =====================================================
+            //CustomTextForLabels.Run();
+            //MINIFSAndMAXIFS.Run();
+            //TotalsInOtherLanguages.Run();
+            //UsingCellsFactory.Run();
             //ConvertingColumnChartToImage.Run();
             //ConvertingPieChartToImageFile.Run();
-
-            //// ConvertingWorksheetToImage
-            //// =====================================================
             //ConvertWorksheetToImageByPage.Run();
             //ConvertWorksheettoImageFile.Run();
-
-            //// CopyRowsColumns
-            //// =====================================================
-            //CopyingSingleColumn.Run();
-            //CopyingSingleRow.Run();
+            //DeletingBlankColumns.Run();
+            //DeletingBlankRows.Run();
+            //ExtractOLEObjects.Run();
+            //GenerateDatabarImage.Run();
+            //SetPictureBackGroundFillChart.Run();
             //CopyingMultipleColumns.Run();
             //CopyingMultipleRows.Run();
+            //CopyingSingleRow.Run();
+            //CopyingSingleColumn.Run();
+            //CopyChart.Run();
+            //CopyControls.Run();
+            //CopyingPicture.Run();
+            //CreatePivotChart.Run();
+            //CreatePivotTableWithFormatting.Run();
+            //UseExplicitLineBreaks.Run();
+            //WrapText.Run();
+            //AbsolutePositionOfShapeInsideWorksheet.Run();
+            //AddWordArtWatermarkToChart.Run();
+            //ChangeShapesAdjustmentValues.Run();
+            //CopyShapesBetweenWorksheets.Run();
+            //CopySparkline.Run();
+            //CreateSignatureLineInWorkbook.Run();
+            //DetermineAxisInChart.Run();
+            //DisableTextWrappingForDataLabels.Run();
+            //GetEquationTextOfChartTrendLine.Run();
+            //GetWorksheetOfTheChart.Run();
+            //RefreshValueOfLinkedShapes.Run();
+            //ResizeChartDataLabelToFit.Run();
+            //RichTextCustomDataLabel.Run();
+            //ShowCellRangeAsDataLabels.Run();
+            //GetDataConnection.Run();
+            //ModifyingExistingDataConnection.Run();
+            //ReadingAndWritingQueryTable.Run();
+            //RetrievingSQLConnectionData.Run();
+            //AccessTableFromCellAndAddValue.Run();
+            //GetValidationAppliedOnCell.Run();
+            //HowAndWhereToUseEnumerators.Run();
+            //VerifyCellValidation.Run();
+            //AssignMacroToFormControl.Run();
+            //CheckVbaCodeIsSigned.Run();
+            //CheckVbaProjectSigned.Run();
+            //CheckVbaSignatureIsValid.Run();
+            //DigitallySignVbaProjectWithCertificate.Run();
+            //ExportVBACertificateToFile.Run();
+            //ModifyingVBAOrMacroCode.Run();
+            //AssignAndValidateDigitalSignatures.Run();
+            //ChangeChartDataSource.Run();
+            //CheckIfPasswordProtected.Run();
+            //CheckPasswordToModify.Run();
+            //ConvertXLSBToXLSM.Run();
+            //CopyMoveWorksheets.Run();
+            //DetectEmptyWorksheets.Run();
+            //DetectFileFormatAndEncryption.Run();
+            //EditingHyperlinksOfWorksheet.Run();
+            //ImportCSVWithFormulas.Run();
+            //ImportXmlData.Run();
+            //VerifyPasswordUsedToProtectWorksheets.Run();
+            //ModifyThroughSampleExcelFile.Run();
+            //ModifyThroughStyleObject.Run();
+            //ReadingLargeExcelFiles.Run();
+            //WritingLargeExcelFiles.Run();
+            //SettingPageSetup.Run();
+            //SettingPrintingOptions.Run();
+            //ChangingLayoutOfPivotTable.Run();
+            //GetPivotTableCellByDisplayName.Run();
+            //RemovePivotTable.Run();
+            //SettingPivotTableOption.Run();
+            //SpecifyAbsolutePositionOfPivotItem.Run();
+            //ConvertChartToSvgImage.Run();
+            //ExportChartToSvgWithViewBox.Run();
+            //ExportHiddenWorksheetInHTML.Run();
+            //PrintCommentWhileSavingToPdf.Run();
+            //PrintingRangeOfPages.Run();
+            //PrintingUsingSheetRender.Run();
+            //PrintingUsingWorkbookRender.Run();
+            //RenderWorksheetToGraphicContext.Run();
+            //SaveExcelIntoPdfWithMinimumSize.Run();
+            //SetCustomFontFolders.Run();
+            //SpecifyJobWhilePrinting.Run();
+            //WorksheetToImageDesiredSize.Run();
+            //WorksheetToImageUsingTiffCompression.Run();
+            //ApplyingSubtotalChangeSummaryDirection.Run();
+            //ConvertStringToNumericValue.Run();
+            //ExtractThemeData.Run();
+            //RenderCustomDateFormat.Run();
+            //RenderGradientFillToHTML.Run();
+            //ImplementIStreamProvider.Run();
+            //ExportedWorkSheetViaIFilePathProvider.Run();
+            //ExpandTextFromRightToLeft.Run();
+            //SpecificPagesToImage.Run();
+            //UseWorkbookRenderForImageConversion.Run();
+            //WorksheetToAnImage.Run();
+            //AddWorkbookScopedNamedRange.Run();
+            //WorksheetNamedRange.Run();
+            //CalculationOfArrayFormula.Run();
+            //DecreaseCalculationTime.Run();
+            //SetExternalLinksInFormulas.Run();
+            //SettingSharedFormula.Run();
+
+            //_CellsHelper.IndexToName.Run();
+            //_CellsHelper.MergeFiles.Run();
+            //_CellsHelper.NameToIndex.Run();
+            //_CellsHelper.NumberOfSignificantDigits.Run();
+            //_CellsHelper.UsingCustomImplementationFactoryToCreateCustomImplementationOfMemoryStream.Run();
+            //UsingSparklines.Run();
+            //Applying3DFormat.Run();
+            //ChangeChartSizeAndPosition.Run();
+            //ChartRendering.Run();
+            //ChartToPdf.Run();
+            //HandleAutomaticUnitsOfChartAxisLikeMicrosoftExcel.Run();
+            //HowToCreateChart.Run();
+            //ReadManipulateExcel2016Charts.Run();
+            //SetShapeTypeOfDataLabelsOfChart.Run();
+            //SettingCategoryData.Run();
+            //SettingChartsData.Run();
+            //SetValuesFormatCodeOfChartSeries.Run();
+            //AddingLabelControlInChart.Run();
+            //AddingPictureInChart.Run();
+            //AddingTextBoxControlInChart.Run();
+            //HowToCreateBubbleChart.Run();
+            //HowToCreateCustomChart.Run();
+            //HowToCreateLineChart.Run();
+            //HowToCreatePieChart.Run();
+            //HowToCreatePyramidChart.Run();
+            //MicrosoftThemeColorInChartSeries.Run();
+            //ModifyLineChart.Run();
+            //ModifyPieChart.Run();
+            //ApplyingThemesInChart.Run();
+            //ChangingMajorGridlinesInChart.Run();
+            //MajorGridlinesOfChart.Run();
+
+            //SettingChartArea.Run();
+            //SettingChartLines.Run();
+            //SettingTitlesAxes.Run();
+            //AddingLinkToOtherSheetCell.Run();
+            //AddingLinkToExternalFile.Run();
+            //AddingLinkToURL.Run();
+            //AddingLinkToURL2.Run();
+            //MergingCellsInWorksheet.Run();
+            //UnMergingtheMergedCells.Run();
+            //AccessAllNamedRanges.Run();
+            //AccessSpecificNamedRange.Run();
+            //CopyNamedRanges.Run();
+            //CreateNamedRangeofCells.Run();
+            //FormatRanges1.Run();
+            //FormatRanges2.Run();
+            //IdentifyCellsInNamedRange.Run();
+            //InputDataInCellsInRange.Run();
+            //IntersectionOfRanges.Run();
+            //RenameNamedRange.Run();
+            //SetBorderAroundEachCell.Run();
+            //UnionOfRanges.Run();
+            //CalculatingSumUsingNamedRange.Run();
+            //MergeCellsInNamedRange.Run();
+            //RemoveNamedRange.Run();
+            //SettingComplexFormulaOfRange.Run();
+
+            //int ii = 0;
+
+            //SettingSimpleFormulaWithRange.Run();
+            //CheckCustomNumberFormat.Run();
+            //AccessCellByRowAndColumnIndex.Run();
+            //AccessCellUsingCellIndexInCellsCollection.Run();
+            //AccessCellUsingCellName.Run();
+            //AccessingMaximumDisplayRangeofWorksheet.Run();
+            //FindCellsContainingFormula.Run();
+            //FindCellsStringNumber.Run();
+            //FindDataOrFormulas.Run();
+            //FindingCellsContainingFormula.Run();
+            //FindingCellsContainingStringValueOrNumber.Run();
+            //FindingCellsWithStringOrNumber.Run();
+            //FindingDataOrFormulasUsingFindOptions.Run();
+
+            //Console.Write("Press key...");
+            //Console.ReadKey();
+            //return;
+
 
             //// CopyShapesBetweenWorksheets
             //// =====================================================
@@ -238,11 +598,6 @@ namespace Aspose.Cells.Examples.CSharp
             //// =====================================================
             //CreatePivotChart.Run();
             //Articles.CreatePivotTablesPivotCharts.CreatePivotTable.Run();
-
-            //// DeleteBlankRowsColumns
-            //// =====================================================
-            //DeletingBlankColumns.Run();
-            //DeletingBlankRows.Run();
 
             //// LineBreakTextWrapping
             //// =====================================================
@@ -314,6 +669,7 @@ namespace Aspose.Cells.Examples.CSharp
             //SpecifyAbsolutePositionOfPivotItem.Run();
             //RemovePivotTable.Run();
             //GetCellByDisplayName.Run();
+            //CustomizePivotTableGlobalSettings.Run();
 
             //// WorkingWithCalculationEngine
             //// =====================================================
@@ -348,7 +704,6 @@ namespace Aspose.Cells.Examples.CSharp
             //// ManagingWorkbooksWorksheets
             //// =====================================================
             //ChangeChartDataSource.Run();
-            //AssignAndValidateDigitalSignatures.Run();
             //SetAutoRecovery.Run();
             //OdsFileSaveOptions.Run();
             //CheckPasswordToModify.Run();
@@ -425,6 +780,30 @@ namespace Aspose.Cells.Examples.CSharp
 
             // =====================================================
             // =====================================================
+            // KnowledgeBase
+            // =====================================================
+            // =====================================================
+
+            //// Benchmarking
+            //// =====================================================
+            //Creating50XLSFiles.Run();
+            //CreateAnExcelFileFiveSheets.Run();
+            //CreateAnExcelFileSingleWorksheet.Run();
+            //LoadLargeExcelScenario1.Run();
+            //LoadLargeExcelScenario2.Run();
+            //LoadLargeExcelScenario3.Run();
+
+            //// ComparingVSTOWithAspose
+            //// =====================================================
+            //UsingAsposeCells.Run();
+
+            //// FAQs
+            //// =====================================================
+            //FixOutOfMemoryException.Run();
+            //FileFormatInformation.Run();
+
+            // =====================================================
+            // =====================================================
             // Charts
             // =====================================================
             // =====================================================
@@ -440,9 +819,9 @@ namespace Aspose.Cells.Examples.CSharp
 
             //// InsertingControlsintoCharts
             //// =====================================================
-            // Charts.InsertingControlsintoCharts.AddingLabelControl.Run();
+            //Charts.InsertingControlsintoCharts.AddingLabelControl.Run();
             //AddingPictureToChart.Run();
-            // Charts.InsertingControlsintoCharts.AddingTextBoxControl.Run();
+            //Charts.InsertingControlsintoCharts.AddingTextBoxControl.Run();
 
             //// ManipulateChart
             //// =====================================================
@@ -458,7 +837,7 @@ namespace Aspose.Cells.Examples.CSharp
             //// SettingChartsAppearance
             //// =====================================================
             //ApplyingThemes.Run();
-            // ChangingMajorGridlines.Run();
+            //ChangingMajorGridlines.Run();
             //MajorGridlines.Run();
             //SettingChartArea.Run();
             //SettingChartLines.Run();
@@ -624,7 +1003,7 @@ namespace Aspose.Cells.Examples.CSharp
             //OpeningMicrosoftExcel972003Files.Run();
             //OpeningSpreadsheetMLFiles.Run();
             //OpeningTabDelimitedFiles.Run();
-            //OpeningTextFilewithCustomSeparator.Run();
+            //OpeningTextFilewithCustomSeparator.Main();
             //SaveFileInExcel972003format.Run();
             //SaveInExcel2007xlsbFormat.Run();
             //SaveInExcel2007xlsxFormat.Run();
@@ -649,8 +1028,13 @@ namespace Aspose.Cells.Examples.CSharp
             //ConvertingToXPS.Run();
             //ConvertingWorksheetToSVG.Run();
             //EncryptingFiles.Run();
+            //EncryptingODSFiles.Run();
             //Excel2PDFConversion.Run();
-            //ManagingDocumentProperties.Run();
+            //AccessingDocumentProperties.Run();
+            //AccessingValueOfDocumentProperties.Run();
+            //AddingDocumentProperties.Run();
+            //ConfigureLinktoContentDocumentProperty.Run();
+            //RemovingCustomProperties.Run();
             //SetPDFCreationTime.Run();
             //SettingImagePrefrencesforHTML.Run();
             //WorksheetToImage.Run();
@@ -933,6 +1317,16 @@ namespace Aspose.Cells.Examples.CSharp
             }
 
             return p;
+        }
+
+        public static string Get_SourceDirectory()
+        {
+            return Path.GetFullPath("..\\..\\..\\Data\\01_SourceDirectory\\");
+        }
+
+        public static string Get_OutputDirectory()
+        {
+            return Path.GetFullPath("..\\..\\..\\Data\\02_OutputDirectory\\");
         }
     }
 }
