@@ -12,12 +12,14 @@ namespace Aspose.Cells.Examples.CSharp.Articles.ManageConditionalFormatting
     {
         public static void Run()
         {
-            // ExStart:GenerateDatabarImage
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            //Source directory
+            string sourceDir = RunExamples.Get_SourceDirectory();
+
+            //Output directory
+            string outputDir = RunExamples.Get_OutputDirectory();
 
             // Create workbook object from source excel file
-            Workbook workbook = new Workbook(dataDir + "source.xlsx");
+            Workbook workbook = new Workbook(sourceDir + "sampleGenerateDatabarImage.xlsx");
 
             // Access first worksheet
             Worksheet worksheet = workbook.Worksheets[0];
@@ -29,20 +31,22 @@ namespace Aspose.Cells.Examples.CSharp.Articles.ManageConditionalFormatting
             int idx = worksheet.ConditionalFormattings.Add();
             FormatConditionCollection fcc = worksheet.ConditionalFormattings[idx];
             fcc.AddCondition(FormatConditionType.DataBar);
+            fcc.AddArea(CellArea.CreateCellArea("C1", "C4"));
 
             // Access the conditional formatting databar
             DataBar dbar = fcc[0].DataBar;
 
             // Create image or print options
             ImageOrPrintOptions opts = new ImageOrPrintOptions();
-            opts.ImageFormat = ImageFormat.Png;
+            opts.ImageType = Drawing.ImageType.Png;
 
             // Get the image bytes of the databar
             byte[] imgBytes = dbar.ToImage(cell, opts);
 
             // Write image bytes on the disk
-            File.WriteAllBytes(dataDir + "databar_out_.png", imgBytes);
-            // ExEnd:GenerateDatabarImage
+            File.WriteAllBytes(outputDir + "outputGenerateDatabarImage.png", imgBytes);
+
+            Console.WriteLine("GenerateDatabarImage executed successfully.");
         }
     }
 }

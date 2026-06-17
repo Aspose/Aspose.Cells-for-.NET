@@ -10,12 +10,14 @@ namespace Aspose.Cells.Examples.CSharp.Articles.RenderingAndPrinting
     {
         public static void Run()
         {
-            // ExStart:WorksheetToImageUsingTiffCompression
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            //Source directory
+            string sourceDir = RunExamples.Get_SourceDirectory();
+
+            //Output directory
+            string outputDir = RunExamples.Get_OutputDirectory();
 
             // Instantiate a new Workbook object with template
-            Workbook book = new Workbook(dataDir + "SampleBook.xlsx");
+            Workbook book = new Workbook(sourceDir + "sampleWorksheetToImageUsingTiffCompression.xlsx");
 
             // Get the first worksheet
             Worksheet sheet = book.Worksheets[0];
@@ -36,7 +38,7 @@ namespace Aspose.Cells.Examples.CSharp.Articles.RenderingAndPrinting
             options.IsCellAutoFit = false;
 
             // Set Image Format
-            options.ImageFormat = System.Drawing.Imaging.ImageFormat.Tiff;
+            options.ImageType = Drawing.ImageType.Tiff;
 
             // Set printing page type
             options.PrintingPage = PrintingPageType.Default;
@@ -45,8 +47,10 @@ namespace Aspose.Cells.Examples.CSharp.Articles.RenderingAndPrinting
             SheetRender sr = new SheetRender(sheet, options);
 
             // Render/save the image for the sheet
-            sr.ToImage(0, dataDir + @"SheetImage_out_.tiff");
-            // ExEnd:WorksheetToImageUsingTiffCompression
+            int pageIndex = 3;
+            sr.ToImage(pageIndex, outputDir + @"outputWorksheetToImageUsingTiffCompression_Page4.tiff");
+
+            Console.WriteLine("WorksheetToImageUsingTiffCompression executed successfully.");
         }
     }
 }

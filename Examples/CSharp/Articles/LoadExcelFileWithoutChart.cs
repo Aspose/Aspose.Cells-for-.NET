@@ -8,22 +8,24 @@ namespace Aspose.Cells.Examples.CSharp.Articles
     {
         public static void Run() 
         {
-            // ExStart:1
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            //Source directory
+            string sourceDir = RunExamples.Get_SourceDirectory();
+
+            //Output directory
+            string outputDir = RunExamples.Get_OutputDirectory();
 
             // Specify the load options and filter the data
             // We do not want to load charts
-            LoadOptions options = new LoadOptions();
-            options.LoadDataFilterOptions = LoadDataFilterOptions.All & ~LoadDataFilterOptions.Chart;
+            LoadOptions loadOptions = new LoadOptions();
+            loadOptions.LoadFilter = new LoadFilter(LoadDataFilterOptions.All & ~LoadDataFilterOptions.Chart);
 
             // Load the workbook with specified load options
-            Workbook workbook = new Workbook(dataDir + "sample.xlsx", options);
+            Workbook workbook = new Workbook(sourceDir + "sampleLoadExcelFileWithoutChart.xlsx", loadOptions);
 
             // Save the workbook in output format
-            workbook.Save(dataDir + "LoadExcelFileWithoutChart_out_.pdf", SaveFormat.Pdf);
-            // ExEnd:1           
-            
+            workbook.Save(outputDir + "outputLoadExcelFileWithoutChart.pdf", SaveFormat.Pdf);
+
+            Console.WriteLine("LoadExcelFileWithoutChart executed successfully.");
         }
     }
 }

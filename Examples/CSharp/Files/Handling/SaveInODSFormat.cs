@@ -15,8 +15,8 @@ namespace Aspose.Cells.Examples.CSharp.Files.Handling
             // Creating a Workbook object
             Workbook workbook = new Workbook();
 
- // Save in ODS format
-            workbook.Save(dataDir + "output.ods", SaveFormat.ODS);
+            // Save in ods format
+            workbook.Save(dataDir + "output.ods");
             // ExEnd:1
             }
         }

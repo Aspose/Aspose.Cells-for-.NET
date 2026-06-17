@@ -9,10 +9,10 @@ namespace Aspose.Cells.Examples.CSharp.Articles
     {
         public static void Run()
         {
-            // ExStart:AvoidExponentialNotationOfHTML
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            //Output directory
+            string outputDir = RunExamples.Get_OutputDirectory();
 
+            // ExStart:1
             // Sample Html containing large number with digits greater than 15
             string html = "<html><body><p>1234567890123456</p></body></html>";
 
@@ -20,7 +20,7 @@ namespace Aspose.Cells.Examples.CSharp.Articles
             byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(html);
 
             // Set Html load options and keep precision true
-            HTMLLoadOptions loadOptions = new Aspose.Cells.HTMLLoadOptions(LoadFormat.Html);
+            HtmlLoadOptions loadOptions = new Aspose.Cells.HtmlLoadOptions(LoadFormat.Html);
             loadOptions.KeepPrecision = true;
 
             // Convert byte array into stream
@@ -34,14 +34,12 @@ namespace Aspose.Cells.Examples.CSharp.Articles
 
             // Auto fit the sheet columns
             sheet.AutoFitColumns();
-
-            dataDir = dataDir + "AvoidExponentialNotationOfHTML.xlsx";
-            // Save the workbook
-            workbook.Save(dataDir, SaveFormat.Xlsx);
-            // ExEnd:AvoidExponentialNotationOfHTML    
-
-            Console.WriteLine("\nProcess completed successfully.\nFile saved at " + dataDir);
             
+            // Save the workbook
+            workbook.Save(outputDir + "outputAvoidExponentialNotationWhileImportingFromHtml.xlsx", SaveFormat.Xlsx);
+            // ExEnd:1
+
+            Console.WriteLine("AvoidExponentialNotationWhileImportingFromHtml executed successfully.\r\n");
         }
     }
 }

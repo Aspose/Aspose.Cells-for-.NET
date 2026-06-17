@@ -22,7 +22,7 @@ namespace Aspose.Cells.Examples.CSharp.Files.Utility
             Aspose.Cells.Rendering.ImageOrPrintOptions options = new Aspose.Cells.Rendering.ImageOrPrintOptions();
             
             // Set the Format
-            options.SaveFormat = SaveFormat.XPS;
+            options.SaveFormat = SaveFormat.Xps;
             
             // Render the sheet with respect to specified printing options
             Aspose.Cells.Rendering.SheetRender sr = new Aspose.Cells.Rendering.SheetRender(sheet, options);
@@ -30,7 +30,7 @@ namespace Aspose.Cells.Examples.CSharp.Files.Utility
             // Save
             sr.ToImage(0, dataDir + "out_printingxps.out.xps");
 
-            // Export the whole workbook to XPS
+            // Export the whole workbook to xps
             Aspose.Cells.Rendering.WorkbookRender wr = new Aspose.Cells.Rendering.WorkbookRender(workbook, options);
             wr.ToImage(dataDir + "out_whole_printingxps.out.xps");
             // ExEnd:1

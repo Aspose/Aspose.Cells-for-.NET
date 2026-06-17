@@ -7,13 +7,11 @@ namespace Aspose.Cells.Examples.CSharp.Files.Handling
 {
     public class OpeningFiles
     {
-        public static void Run()
+        public static void Main()
         {
             // Exstart:1
             // The path to the documents directory.
             string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-            
-            
 
             // 1.
             // Opening through Path
@@ -68,9 +66,9 @@ namespace Aspose.Cells.Examples.CSharp.Files.Handling
 
 
             // 6.
-            // Opening CSV Files
+            // Opening csv Files
             // Instantiate LoadOptions specified by the LoadFormat.
-            LoadOptions loadOptions4 = new LoadOptions(LoadFormat.CSV);
+            LoadOptions loadOptions4 = new LoadOptions(LoadFormat.Csv);
 
             // Create a Workbook object and opening the file from its path
             Workbook wbCSV = new Workbook(dataDir + "Book_CSV.csv", loadOptions4);
@@ -108,19 +106,22 @@ namespace Aspose.Cells.Examples.CSharp.Files.Handling
             // Instantiate LoadOptions specified by the LoadFormat
             LoadOptions loadOptions7 = new LoadOptions(LoadFormat.Xlsx);
 
-            // Set the LoadDataOption
-            LoadDataOption dataOption = new LoadDataOption();
-            // Specify the sheet(s) in the template file to be loaded
-            dataOption.SheetNames = new string[] { "Sheet2" };
-            dataOption.ImportFormula = true;
-            // Only data and formatting should be loaded.
-            loadOptions7.LoadDataAndFormatting = true;
-            // Specify the LoadDataOption
-            loadOptions7.LoadDataOptions = dataOption;
+            // Load only cell data, formulas & formatting
+            loadOptions7.LoadFilter = new LoadFilter(LoadDataFilterOptions.CellData);
 
             // Create a Workbook object and opening the file from its path
             Workbook wb = new Workbook(dataDir + "Book1.xlsx", loadOptions7);
-            Console.WriteLine("File data imported successfully!");
+
+
+            // 10.
+            // Opening Excel95/5.0 XLS Files
+            // Instantiate LoadOptions specified by the LoadFormat.
+            LoadOptions loadOptionsExcel95 = new LoadOptions(LoadFormat.Auto);
+
+            // Create a Workbook object and opening the file from its path
+            Workbook wbExcel95 = new Workbook(dataDir + "Excel95_5.0.xls", loadOptionsExcel95);
+
+            Console.WriteLine("Excel95/5.0 XLS opened successfully!");
             // ExEnd:1
         }
     }

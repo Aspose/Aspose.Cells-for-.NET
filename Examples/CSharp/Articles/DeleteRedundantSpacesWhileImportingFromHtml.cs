@@ -9,10 +9,10 @@ namespace Aspose.Cells.Examples.CSharp.Articles
     {
         public static void Run()
         {
-            // ExStart:DeleteRedundantSpacesWhileImportingFromHtml
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            //Output directory
+            string outputDir = RunExamples.Get_OutputDirectory();
 
+            // ExStart:1
             // Sample Html containing redundant spaces after <br> tag
             string html = "<html> <body> <table> <tr> <td> <br>    This is sample data <br>    This is sample data<br>    This is sample data</td> </tr> </table> </body> </html>";
 
@@ -20,7 +20,7 @@ namespace Aspose.Cells.Examples.CSharp.Articles
             byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(html);
 
             // Set Html load options and keep precision true
-            HTMLLoadOptions loadOptions = new Aspose.Cells.HTMLLoadOptions(LoadFormat.Html);
+            HtmlLoadOptions loadOptions = new Aspose.Cells.HtmlLoadOptions(LoadFormat.Html);
             loadOptions.DeleteRedundantSpaces = true;
 
             // Convert byte array into stream
@@ -35,12 +35,11 @@ namespace Aspose.Cells.Examples.CSharp.Articles
             // Auto fit the sheet columns
             sheet.AutoFitColumns();
 
-            dataDir = dataDir + "DeleteRedundantSpaces_out_.xlsx";
-
             // Save the workbook
-            workbook.Save(dataDir, SaveFormat.Xlsx);
-            // ExEnd:DeleteRedundantSpacesWhileImportingFromHtml           
-            Console.WriteLine("\nProcess completed successfully.\nFile saved at " + dataDir); 
+            workbook.Save(outputDir + "outputDeleteRedundantSpacesWhileImportingFromHtml.xlsx", SaveFormat.Xlsx);
+            // ExEnd:1
+
+            Console.WriteLine("DeleteRedundantSpacesWhileImportingFromHtml executed successfully.\r\n");
         }
     }
 }
